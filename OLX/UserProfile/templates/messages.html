@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+ <div class="header_bg">
+    <header>
+        <a class="site__logo"><img src="{%static "images/logo.png" %}" class="site__logo__img"></a>
+        <ul class="Navigation">
+            <li ><a class="navigation__link">Повідомлення</a></li>
+            <li ><a href="{% url 'logout'%}" class="navigation__link"> Вийти </a></li>
+            <li id="profileli"><a href="{% url 'userprofile' %}"  class="navigation__link"> <div class="profile__link"><img src="{%static "images/profile.png" %}" id="profile_logo">  <span>Ваш профіль</span></div></a></li>
+            <li class="PushToStore"><button ><a id="PushToStore" href="{% url 'pushreveletaion'%}" class="navigation__link">Подати об'явлення</a></button></li>
+        </ul>
+</header>
+ </div>
+<body>
+    <div class="messages">
+        <h1>Вхідні повідомлення</h1>
+    <ul class="message__list">
+        {{msg}}
+        {% for answer in answers %}
+            <div class="message__item">
+                <li>{{answer.description}}   {{user_client.username}} : <a href="{% url 'aans' answer.id %}" class="message__link">Підтвердити</a> / <a href="{% url 'dans' answer.id %}" class="message__link">Видалити</a> / <a href="{% url 'msg_answer' answer.id %}" class="message__link">Відповісти</a> </li>
+            </div>
+        {% endfor %}
+    </ul >
+        <h1>Ваші повідомлення</h1>
+        {{msg_1}}
+        <ul class="message__list">
+        {% for answer in your_answers %}
+            <div class="message__item">
+            <li>{{answer.description}}  {{user.username}} :<a href="{% url 'dans' answer.id %}" class="message__link">Видалити</a></li>
+            </div>
+        {% endfor %}
+    </ul>
+    </div>
+</body>
+</html>

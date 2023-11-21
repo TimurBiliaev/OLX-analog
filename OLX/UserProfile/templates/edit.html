@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title></title>
+</head>
+<body>
+ <form method="POST">
+    {% csrf_token %}
+        <p>
+            <label>Введіть назву</label><br>
+            <input type="text" name = "name" value="{{revelation.name}}" />
+        </p>
+        <p>
+            <label>Введіть опис</label><br>
+            <input type="text"  name = "description" value="{{revelation.description}}" />
+        </p>
+        <p>
+            <label>Введіть ціну</label><br>
+            <input type="text"  name = "price" value="{{revelation.price}}" />
+        </p>
+        <input type="submit" value="Зберегти" >
+    </form>
+</body>
+</html>

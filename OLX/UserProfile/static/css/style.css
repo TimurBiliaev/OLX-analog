@@ -1,0 +1,97 @@
+html, body {
+margin:0;
+padding:0;
+    background-color: #c3ffdd;
+}
+
+header{
+    background-color: #143802;
+}
+
+#logo{
+    height: 5%;
+    width: 5%;
+    min-height: 70px;
+    min-width: 70px;
+}
+
+#PushToStore{
+    color: #143802;
+}
+
+.PushToStore button{
+    margin-top: 20px;
+    background-color: white;
+    color: #143802;
+     border-radius: 5px;
+    border: 0;
+    min-width: 50px;
+    min-height: 30px;
+
+}
+
+.PushToStore button:hover {
+    background-color: #143802;
+    color: white;
+}
+
+#PushToStore:hover{
+    color: white;
+}
+
+
+.Navigation{
+    margin-right: 1%;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Navigation a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.Navigation ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    list-style-type: none;
+}
+
+.Navigation li{
+    margin-right: 10px;
+}
+
+#profileli{
+    align-items: center;
+
+}
+
+#profileli:hover{
+    opacity: 50%;
+}
+
+
+#profile_logo{
+    padding-top: 10px;
+
+    height: 30px;
+    width: 30px;
+}
+
+
+.ui{
+    padding-top: 20px;
+    margin-right: 1%;
+}
+
+.ui:hover{
+    opacity: 50%;
+}
+
+
+
+

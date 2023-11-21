@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title></title>
+</head>
+<header>
+
+</header>
+<body>
+    <p>{{mess}}</p>
+    <div class="register__form__div">
+    <form method="post" class="register__form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" ></button>
+    </form>
+    </div>
+    <a href="{%  url 'regestration' %}">Зареєструватися</a>
+    <a href="{% url 'Recovery' %}">Забули пароль?</a>
+</body>
+</html>

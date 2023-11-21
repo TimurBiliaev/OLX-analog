@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+ <div class="header_bg">
+    <header>
+        <a class="site__logo"><img src="{%static "images/logo.png" %}" class="site__logo__img"></a>
+        <ul class="Navigation">
+            <li ><a class="navigation__link">Повідомлення</a></li>
+            <li ><a href="{% url 'logout'%}" class="navigation__link"> Вийти </a></li>
+            <li id="profileli"><a href="{% url 'userprofile' %}"  class="navigation__link"> <div class="profile__link"><img src="{%static "images/profile.png" %}" id="profile_logo">  <span>Ваш профіль</span></div></a></li>
+            <li class="PushToStore"><button ><a id="PushToStore" href="{% url 'pushreveletaion'%}" class="navigation__link">Подати об'явлення</a></button></li>
+        </ul>
+</header>
+ </div>
+<body>
+
+
+<div class="user_revelations ">
+    <h1>Всі об'явлення користувача {{user.username}}</h1>
+    <ul class="user__revelations">
+        {% for revelation in revelations%}
+            <li>
+                <div class="item">
+                    <div class="container">
+                    <img src="{{MEDIA_URL}}{{revelation.image.url}}"><br>
+                     </div>
+                    <a href="{% url 'revelation' revelation.id %}" class="revelation_link">{{revelation.name}}</a>
+                    <p>{{revelation.price}}</p>
+                </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

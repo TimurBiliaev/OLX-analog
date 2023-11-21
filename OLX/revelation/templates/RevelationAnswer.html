@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<div class="header_bg">
+    <header>
+        <a class="site__logo"><img src="{%static "images/logo.png" %}" class="site__logo__img"></a>
+        <ul class="Navigation">
+            <li ><a class="navigation__link">Повідомлення</a></li>
+            <li ><a href="{% url 'logout'%}" class="navigation__link"> Вийти </a></li>
+            <li id="profileli"><a href="{% url 'userprofile' %}"  class="navigation__link"> <div class="profile__link"><img src="{%static "images/profile.png" %}" id="profile_logo">  <span>Ваш профіль</span></div></a></li>
+            <li class="PushToStore"><button ><a id="PushToStore" href="{% url 'pushreveletaion'%}" class="navigation__link">Подати об'явлення</a></button></li>
+        </ul>
+</header>
+ </div>
+<body class="message__body__form">
+<div class="message__form__div">
+ <form method="POST" class="message__form">
+    {% csrf_token %}
+        <p>
+            <label>Введіть ваше повідомлення</label><br>
+            <input type="text" name = "revelation__answer__description" value="" />
+        </p>
+     <button type="submit"  value="Відпрвити">Відправити</button>
+  </form>
+</div>
+
+
+</body>
+
+</html>

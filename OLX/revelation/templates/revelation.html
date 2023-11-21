@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<div class="header_bg">
+    <header>
+        <a class="site__logo"><img src="{%static "images/logo.png" %}" class="site__logo__img"></a>
+        <ul class="Navigation">
+        <li ><a class="navigation__link" href="{% url 'msg' %}">Повідомлення</a></li>
+            <li ><a href="{% url 'logout'%}" class="navigation__link"> Вийти </a></li>
+            <li id="profileli"><a href="{% url 'userprofile' %}"  class="navigation__link"> <div class="profile__link"><img src="{%static "images/profile.png" %}" id="profile_logo">  <span>Ваш профіль</span></div></a></li>
+            <li class="PushToStore"><button ><a id="PushToStore" href="{% url 'pushreveletaion'%}" class="navigation__link">Подати об'явлення</a></button></li>
+        </ul>
+</header>
+ </div>
+<body>
+<div class="revelation__info">
+<div class="product__gallery">
+<div class="siema">
+    <div class="galery__item">
+        <img src="{{ MEDIA_URL }}{{ revelation.image.url }}" class="galery__img">
+    </div>
+    <div class="galery__item">
+        <img src="{{ MEDIA_URL }}{{ revelation.image_2.url }}" class="galery__img">
+    </div>
+    <div class="galery__item">
+        <img src="{{ MEDIA_URL }}{{ revelation.image_3.url }}" class="galery__img">
+    </div>
+    </div>
+<div class="galery__panel">
+<button class="prev">prev</button>
+<button class="next">next</button>
+</div>
+
+</div>
+
+
+<div class="product__description">
+    <div class="description">
+
+    <h3>{{revelation.name}}</h3><br>
+    <h1>{{revelation.price}} ГРН.</h1><br>
+
+    <button value="" class="message___link"><a href="{% url 'revanswer' revelation.id %}">Повідомленя</a></button>
+     <h3>Дані користувача</h3>
+        <h3><a href="{% url 'otheruser' user.id %}" class="user___link"> {{user.username}}<a/></h3>
+    </div>
+</div>
+</div>
+<div class="product____description">
+
+</div>
+<div class="index__revelations ">
+    <h1>Схожі об'явлення</h1>
+    <ul class="index_revelations">
+        {% for revelation in revelations%}
+            <li>
+                <div class="index__revelations__item">
+                    <div class="container">
+                    <img src="{{MEDIA_URL}}{{revelation.image.url}}"><br>
+                     </div>
+                    <a href="{% url 'revelation' revelation.id %}" class="revelation_link">{{revelation.name}}</a>
+                    <p>{{revelation.price}}</p>
+                </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<script src="{% static 'siema-1.5.1/dist/siema.min.js' %}"></script>
+<script>
+    const mySiema = new Siema();
+    document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+    document.querySelector('.next').addEventListener('click', () => mySiema.next());
+</script>
+
+<footer>
+    <div class="footer__items">
+        <ul class="information__list">
+            <li class="information__list__item"><a>Підтримка</a><br></li>
+            <li class="information__list__item"><a>Блог</a><br></li>
+            <li class="information__list__item"><a>Правила</a><br></li>
+            <li class="information__list__item"><a>Реклама</a><br></li>
+
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
